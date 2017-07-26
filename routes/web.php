@@ -20,3 +20,5 @@ Route::post('/contact', 'TicketsController@store');
 Route::get('/ticket', 'TicketsController@index');
 Route::get('/ticket/{slug}', 'TicketsController@show');
 Route::get('/ticket/{slug}/edit', 'TicketsController@edit');
+Route::post('/ticket/{slug}/edit', 'TicketsController@update');
+Route::post('/ticket/{slug?}/delete','TicketsController@destroy');
