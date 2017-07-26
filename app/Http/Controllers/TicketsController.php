@@ -15,7 +15,8 @@ class TicketsController extends Controller
      */
     public function index()
     {
-        //
+        $tickets = Ticket::all();
+        return view('tickets/index', compact('tickets'));
     }
 
     /**
@@ -55,9 +56,10 @@ class TicketsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $ticket = Ticket::whereSlug($slug)->firstOrFail();
+        return view('tickets.show', compact('ticket'));
     }
 
     /**
